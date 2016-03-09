@@ -16,58 +16,8 @@ public class CS451_Nassif {
 
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
 		
-			String args1 = "java.jpg";
-			System.out.println("1. Enter an N from 0 to 5");
-			int n = scan.nextInt();
-
-			Image image = new Image(args1, true);
-			image.display(args1 + " original ");
-			image.write2JPEG("original " + args1 + ".jpg");
-			image.addPadding();
-
-			image.cpTransform();
-			image.subSampleCrCb();
-			image.DCTY();
-			image.DCTCb();
-			image.DCTCr();
-
-			image.quantizeY(n);
-			image.quantizeCb(n);
-			image.quantizeCr(n);
-			double cry = image.compressionRatioY(n);
-			double crcb = image.compressionRatioCb(n);
-			double crcr = image.compressionRatioCr(n);
-
-			double totalCost = cry + crcb + crcr;
-			double compressedR = image.getTotalSize() / totalCost;
-
-			System.out.println("Original image cost " + image.getTotalSize());
-			System.out.println("The Y values cost is " + cry + " bits.");
-			System.out.println("The Cb values cost is " + crcb + " bits.");
-			System.out.println("The Cr values cost is " + crcr + " bits.");
-			System.out.println("The total compressed image cost is "
-					+ totalCost + " bits.");
-			System.out.println("The compressed ratio is " + compressedR
-					+ " bits.");
-			image.dequantizeCb(n);
-			image.dequantizeCr(n);
-			image.dequantizeY(n);
-
-			image.CrIDCT();
-			image.CbIDCT();
-
-			image.yIDCT();
-
-			image.superSample();
-			Image image2 = image.removePadding();
-
-			image2.display(args1 + " " + n);
-			image2.write2JPEG(args1 + ".jpg");
-		
-		
-		/**if (args.length == 2 && args[0].equals("1")) {
+		if (args.length == 2 && args[0].equals("1")) {
 			if (args.length != 2) {
 				usage();
 				System.exit(1);
@@ -102,7 +52,7 @@ public class CS451_Nassif {
 			while (true) {
 				menuHW4();
 			}
-		}**/
+		}
 	}
 
 	public static void usage() {
@@ -504,7 +454,7 @@ public class CS451_Nassif {
 
 			Image image = new Image(args);
 			image.display(args + " original ");
-			image.write2PPM("original " + args + ".ppm");
+			image.write2PPM("original " + args);
 			image.addPadding();
 
 			image.cpTransform();
@@ -544,7 +494,7 @@ public class CS451_Nassif {
 			Image image2 = image.removePadding();
 
 			image2.display(args + " " + n);
-			image2.write2PPM(args + ".ppm");
+			image2.write2PPM(args);
 		}
 
 		else if (task == 2) {

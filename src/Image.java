@@ -334,33 +334,7 @@ public class Image
 	  			}
 			}
 		}
-		
-		/*if(heightResize > height){
-			
-			for(y=height;y<heightResize;y++)
-			{
-		  		for(x=0;x<widthResize;x++)
-				{
-					rgb[0] = 0;
-					rgb[1] = 0;
-					rgb[2] = 0;
-					setPixel(x, y, rgb);
-				}
-			}
-			
-		}
-			if (widthResize > width) {
 
-				for (y = 0; y < heightResize; y++) {
-					for (x = width; x < widthResize; x++) {
-						rgb[0] = 0;
-						rgb[1] = 0;
-						rgb[2] = 0;
-						setPixel(x, y, rgb);
-					}
-				}
-
-			}*/
 		
 		
 		dis.close();
@@ -553,26 +527,7 @@ public class Image
 
 		}
 		
-		/*for(int i = 0; i < heightResize; i++){
-			for(int j = 0; j < widthResize; j++){
-				
-				if(i < newHeightResize && j < newWidthResize){
-					Cr[i][j] = Cr1[i][j];
-					Cb[i][j] = Cb1[i][j];
-				}
-				else{
-					Cr[i][j] = 0;
-					Cb[i][j] = 0;
-				}
-			}
-			
-		}*/
 		
-		
-		
-		
-		
-
 	}
  
 	public void superSample() {
@@ -597,23 +552,6 @@ public class Image
 		}
 		
 		
-		/*Image image = new Image(widthResize, heightResize);
-
-		int x, y;
-
-		int[] rgb = new int[3];
-		for (y = 0; y < heightResize; y++) {
-			for (x = 0; x < widthResize; x++) {
-
-				rgb[0] = (int) Y[y][x];
-				rgb[1] = (int) cb1[y][x];
-				rgb[2] = (int) cr1[y][x];
-
-				image.setPixel(x, y, rgb);
-
-			}
-
-		}*/
 
 		for (int y = 0; y < heightResize; y++) {
 			for (int x = 0; x < widthResize; x++) {
@@ -648,25 +586,7 @@ public class Image
 
 		}
 
-		/*Image image = new Image(widthResize, heightResize);
-
-		int x, y;
-
-		int[] rgb = new int[3];
-		for (y = 0; y < heightResize; y++) {
-			for (x = 0; x < widthResize; x++) {
-
-				rgb[0] = (int) Y[y][x];
-				rgb[1] = (int) cb1[y][x];
-				rgb[2] = (int) cr1[y][x];
-
-				image.setPixel(x, y, rgb);
-
-			}
-
-		}
-
-		return image;*/
+		
 	}
 	
 	public double[][] DCT(double[][] input){
@@ -755,69 +675,10 @@ public class Image
 					}
 				}
 				
-				
-
-				/*for (int u1 = u; u1 < u + 8; u1++) {
-					for (int v1 = v; v1 < v + 8; v1++) {
-						double sum = 0;
-						for (int x = u; x < u + 8; x++) {
-							for (int y = v; y < v + 8; y++) {
-								// System.out.println("u " + u + " v " + v);
-								// System.out.println("x " + x + " y " + y);
-								sum += Y[x][y]
-										* (Math.cos((((2.0 * x) + 1) * v1 * Math.PI) / 16) * Math
-												.cos((((2.0 * y) + 1) * u1 * Math.PI) / 16));
-
-							}
-						}
-
-						double value;
-						if (u1 == 0 && v1 == 0) {
-
-							value = sum * (1.0 / 4) * (Math.sqrt(2) / 2)
-									* (Math.sqrt(2) / 2);
-
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						} else if (u1 == 0 && v1 != 0) {
-							value = sum * (1.0 / 4) * (Math.sqrt(2) / 2);
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						} else if (v1 == 0 && u1 != 0) {
-							value = sum * (1.0 / 4) * (Math.sqrt(2) / 2);
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						} else {
-							value = sum * (1.0 / 4);
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						}
-						Yholder[u1][v1] = value;
-
-					}
-				}*/
+			
 			}
 
 		}
-
-		/*for (int i = 0; i < heightResize; i++) {
-			for (int j = 0; j < widthResize; j++) {
-
-				Y[i][j] = Yholder[i][j];
-			}
-		}*/
 
 	}
 
@@ -849,71 +710,11 @@ public class Image
 								
 							}
 						}
-
-				/*for (int u1 = u; u1 < u + 8; u1++) {
-					for (int v1 = v; v1 < v + 8; v1++) {
-						double sum = 0;
-						for (int x = u; x < u + 8; x++) {
-							for (int y = v; y < v + 8; y++) {
-								// System.out.println("u " + u + " v " + v);
-								// System.out.println("x " + x + " y " + y);
-								sum += Cr1[x][y]
-										* (Math.cos((((2.0 * x) + 1) * v1 * Math.PI) / 16) * Math
-												.cos((((2.0 * y) + 1) * u1 * Math.PI) / 16));
-
-							}
-						}
-
-						double value;
-						if (u1 == 0 && v1 == 0) {
-
-							value = sum * (1.0 / 4) * (Math.sqrt(2) / 2)
-									* (Math.sqrt(2) / 2);
-
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						} else if (u1 == 0 && v1 != 0) {
-							value = sum * (1.0 / 4) * (Math.sqrt(2) / 2);
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						} else if (v1 == 0 && u1 != 0) {
-							value = sum * (1.0 / 4) * (Math.sqrt(2) / 2);
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						} else {
-							value = sum * (1.0 / 4);
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						}
-						Crholder[u1][v1] = value;
-
-					}
-				}*/
 				
 				
 			}
 
 		}
-
-		/*for (int i = 0; i < newHeightResize; i++) {
-			for (int j = 0; j < newWidthResize; j++) {
-
-				Cr1[i][j] = Crholder[i][j];
-			}
-
-		}*/
 
 	}
 
@@ -947,72 +748,10 @@ public class Image
 				
 				
 
-				/*for (int u1 = u; u1 < u + 8; u1++) {
-					for (int v1 = v; v1 < v + 8; v1++) {
-						double sum = 0;
-						for (int x = u; x < u + 8; x++) {
-							for (int y = v; y < v + 8; y++) {
-								// System.out.println("u " + u + " v " + v);
-								// System.out.println("x " + x + " y " + y);
-								sum += Cb1[x][y]
-										* (Math.cos((((2.0 * x) + 1) * v1 * Math.PI) / 16) * Math
-												.cos((((2.0 * y) + 1) * u1 * Math.PI) / 16));
-
-							}
-						}
-
-						double value;
-						if (u1 == 0 && v1 == 0) {
-
-							value = sum * (1.0 / 4) * (Math.sqrt(2) / 2)
-									* (Math.sqrt(2) / 2);
-
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						} else if (u1 == 0 && v1 != 0) {
-							value = sum * (1.0 / 4) * (Math.sqrt(2) / 2);
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						} else if (v1 == 0 && u1 != 0) {
-							value = sum * (1.0 / 4) * (Math.sqrt(2) / 2);
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						} else {
-							value = sum * (1.0 / 4);
-							if (value > Math.pow(2, 10))
-								value = Math.pow(2, 10);
-							else if (value < -1024)
-								value = -1024;
-
-						}
-						Cbholder[u1][v1] = value;
-
-					}
-				}*/
-				
-				
-				
 				
 			}
 
 		}
-
-		/*for (int i = 0; i < newHeightResize; i++) {
-			for (int j = 0; j < newWidthResize; j++) {
-
-				Cb1[i][j] = Cbholder[i][j];
-			}
-
-		}*/
 
 	}
 
@@ -1083,58 +822,11 @@ public class Image
 						
 					}
 				}
-				
-				
-				
-				/*for (int u1 = u; u1 < u + 8; u1++) {
-					for (int v1 = v; v1 < v + 8; v1++) {
-						double sum = 0;
-						for (int x = u; x < u + 8; x++) {
-							for (int y = v; y < v + 8; y++) {
-
-								if (x == 0 && y == 0)
-									sum += (1.0 / 4)
-											* (Math.sqrt(2) / 2)
-											* (Math.sqrt(2) / 2)
-											* Y[x][y]
-											* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-													.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-								else if (x == 0 && y != 0)
-									sum += (1.0 / 4)
-											* (Math.sqrt(2) / 2)
-											* Y[x][y]
-											* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-													.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-								else if (y == 0 && x != 0)
-									sum += (1.0 / 4)
-											* (Math.sqrt(2) / 2)
-											* Y[x][y]
-											* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-													.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-								else
-									sum += (1.0 / 4)
-											* Y[x][y]
-											* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-													.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-
-							}
-						}
-
-						inverseDCT[u1][v1] = sum;
-
-					}
-				}*/
+			
 			}
 
 		}
 
-		/*for (int i = 0; i < heightResize; i++) {
-			for (int j = 0; j < widthResize; j++) {
-
-				Y[i][j] = inverseDCT[i][j];
-			}
-
-		}*/
 
 	}
 
@@ -1165,56 +857,10 @@ public class Image
 					}
 				}
 				
-				
-				/*for (int u1 = u; u1 < u + 8; u1 ++) {
-					for (int v1 = v; v1 < v + 8; v1 ++) {
-				double sum = 0;
-				for (int x = u; x < u + 8; x++) {
-					for (int y = v; y < v + 8; y++) {
-
-						if (x == 0 && y == 0)
-							sum += (1.0 / 4)
-									* (Math.sqrt(2) / 2)
-									* (Math.sqrt(2) / 2)
-									* Cr1[x][y]
-									* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-											.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-						else if (x == 0 && y != 0)
-							sum += (1.0 / 4)
-									* (Math.sqrt(2) / 2)
-									* Cr1[x][y]
-									* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-											.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-						else if (y == 0 && x != 0)
-							sum += (1.0 / 4)
-									* (Math.sqrt(2) / 2)
-									* Cr1[x][y]
-									* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-											.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-						else
-							sum += (1.0 / 4)
-									* Cr1[x][y]
-									* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-											.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-
-					}
-				}
-
-				inverseDCT[u1][v1] = sum;
-
-			}
-
-		}*/
 			}
 		}
 
-		/*for (int i = 0; i < newHeightResize; i++) {
-			for (int j = 0; j < newWidthResize; j++) {
-
-				Cr1[i][j] = inverseDCT[i][j];
-			}
-
-		}*/
+		
 
 	}
 
@@ -1245,55 +891,10 @@ public class Image
 					}
 				}
 				
-				/*for (int u1 = u; u1 < u + 8; u1 ++) {
-					for (int v1 = v; v1 < v + 8; v1 ++) {
-				double sum = 0;
-				for (int x = u; x < u + 8; x++) {
-					for (int y = v; y < v + 8; y++) {
-
-						if (x == 0 && y == 0)
-							sum += (1.0 / 4)
-									* (Math.sqrt(2) / 2)
-									* (Math.sqrt(2) / 2)
-									* Cb1[x][y]
-									* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-											.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-						else if (x == 0 && y != 0)
-							sum += (1.0 / 4)
-									* (Math.sqrt(2) / 2)
-									* Cb1[x][y]
-									* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-											.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-						else if (y == 0 && x != 0)
-							sum += (1.0 / 4)
-									* (Math.sqrt(2) / 2)
-									* Cb1[x][y]
-									* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-											.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-						else
-							sum += (1.0 / 4)
-									* Cb1[x][y]
-									* (Math.cos((((2.0 * v1) + 1) * x * Math.PI) / 16) * Math
-											.cos((((2.0 * u1) + 1) * y * Math.PI) / 16));
-
-					}
-				}
-
-				inverseDCT[u1][v1] = sum;
-
-			}
-
-		}*/
+				
 			}
 		}
-		/*for (int i = 0; i < newHeightResize; i++) {
-			for (int j = 0; j < newWidthResize; j++) {
-
-				Cb1[i][j] = inverseDCT[i][j];
-			}
-
-		}*/
-
+		
 	}
 	
 	
@@ -1784,7 +1385,7 @@ public void white(){
   public void UCQ(){
 	  
 	  lookUpTable();
-	  //Image ucq = new Image(this.width, this.height);
+	  
 	  int x, y;
 	  
 	  int[] rgb = new int[3];
@@ -1793,10 +1394,6 @@ public void white(){
 			for(x=0;x<width;x++)
 			{
 				getPixel(x, y, rgb);
-				/*int red = rgb[0]/32;
-				int green = rgb[1]/32;
-				int blue = rgb[2]/64;
-				int index = (32 * red) + (4*green) + (1*blue);*/
 				int index = rgb[0];
 				int[] rgb1 = map.get(index);
 				
@@ -1863,17 +1460,6 @@ public void white(){
 				
 			}
 		}
-		/*System.out.println("Index \t r \t g \t b ");
-		
-		for(Entry<Integer, int[]> e: map.entrySet()){
-			System.out.print(e.getKey() + " \t");
-			int[] value1 = e.getValue();
-			for(int i = 0; i < value1.length; i++){
-				System.out.print(value1[i]+ " \t");
-				
-			}
-			System.out.println();
-		}*/
 		
 		
   }
@@ -2105,36 +1691,7 @@ public void displayLUT(){
 				}
 				
 				image.setPixel(x/this.K, y/this.K, rgb1);
-			  /*if(x == 0 && y == 0){
-				  
-				  image.getPixel(x/this.K, y/this.K, rgb1);
-				  rgb1[0] = rgb1[1] = rgb1[2] = (int) ((array2D[y + 1][x] * (1f/9)) + (array2D[y+1][x+1] * (1f/9)) 
-						  + (array2D[y][x+1] * (1f/9)));
-				  image.setPixel(x/this.K, y/this.K, rgb1);
-			  }*/
-			  
-			  
-			  /*if(x == width - 1 && y == 0){
-				  
-				  rgb1[0] = rgb1[1] = rgb1[2] = (int)((array2D[x-1][y]*(1f/9)) + (array2D[x-1][y+1]*(1f/9))
-						  + (array2D[x][y+1]*(1f/9)) + (array2D[x][y]*(1f/9)));
-				  
-			  }
-			  if(x == 0 && y == height - 1){
-				  rgb1[0] = rgb1[1] = rgb1[2] = (int)((array2D[x][y-1]*(1f/9)) + (array2D[x+1][y-1]*(1f/9))
-						  + (array2D[x+1][y]*(1f/9)) + (array2D[x][y]*(1f/9)));
-				  
-				  
-			  }
-			  
-			  if(x == width - 1 && y == height - 1){
-				  
-				  rgb1[0] = rgb1[1] = rgb1[2] = (int)((array2D[x-1][y]*(1f/9)) + (array2D[x-1][y-1]*(1f/9))
-						  + (array2D[x][y-1]*(1f/9)) + (array2D[x][y]*(1f/9)));
-			  }*/
-			  
-			  
-				  
+			    
 			  
 		  }
 		  
@@ -2180,37 +1737,8 @@ public void displayLUT(){
 				}
 				
 				image.setPixel(x/this.K, y/this.K, rgb1);
-			  /*if(x == 0 && y == 0){
-				  
-				  image.getPixel(x/this.K, y/this.K, rgb1);
-				  rgb1[0] = rgb1[1] = rgb1[2] = (int) ((array2D[y + 1][x] * (1f/9)) + (array2D[y+1][x+1] * (1f/9)) 
-						  + (array2D[y][x+1] * (1f/9)));
-				  image.setPixel(x/this.K, y/this.K, rgb1);
-			  }*/
 			  
-			  
-			  /*if(x == width - 1 && y == 0){
-				  
-				  rgb1[0] = rgb1[1] = rgb1[2] = (int)((array2D[x-1][y]*(1f/9)) + (array2D[x-1][y+1]*(1f/9))
-						  + (array2D[x][y+1]*(1f/9)) + (array2D[x][y]*(1f/9)));
-				  
-			  }
-			  if(x == 0 && y == height - 1){
-				  rgb1[0] = rgb1[1] = rgb1[2] = (int)((array2D[x][y-1]*(1f/9)) + (array2D[x+1][y-1]*(1f/9))
-						  + (array2D[x+1][y]*(1f/9)) + (array2D[x][y]*(1f/9)));
-				  
-				  
-			  }
-			  
-			  if(x == width - 1 && y == height - 1){
-				  
-				  rgb1[0] = rgb1[1] = rgb1[2] = (int)((array2D[x-1][y]*(1f/9)) + (array2D[x-1][y-1]*(1f/9))
-						  + (array2D[x][y-1]*(1f/9)) + (array2D[x][y]*(1f/9)));
-			  }*/
-			  
-			  
-				  
-			  
+			 
 		  }
 		  
 	  
